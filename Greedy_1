@@ -17,6 +17,8 @@ int solution(int n, vector<int> lost, vector<int> reserve) {
    
     LargeVecSize = lost.size() > reserve.size() ? lost.size() : reserve.size();
     
+    // 값 셋팅 [ 기본 값 1, 잃어버린 학생 -1, 가져온 학생 + 1]
+    // 가져왔지만 잃어버린 학생은 +-되어 1 유지
     for(int j=0; j < LargeVecSize; j++)
     {
         if(j < lost.size())
@@ -32,6 +34,7 @@ int solution(int n, vector<int> lost, vector<int> reserve) {
         }
     }
     
+    //체육복이 2개 이상인 학생만, 체육복 대여
     for(int i=0; i < reserve.size(); i++)
     {
        if(CheckVector[reserve[i]-1] == 2)
