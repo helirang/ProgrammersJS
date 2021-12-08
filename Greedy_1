@@ -6,17 +6,15 @@ using namespace std;
 
 int solution(int n, vector<int> lost, vector<int> reserve) {
     int answer = 0;
-    
-    vector<int> CheckVector;
     int LargeVecSize;
+    vector<int> CheckVector;
     
     CheckVector.assign(n,1);
-
     answer = n - lost.size();
     
     sort(lost.begin(),lost.end());
     sort(reserve.begin(),reserve.end());
-    
+   
     LargeVecSize = lost.size() > reserve.size() ? lost.size() : reserve.size();
     
     for(int j=0; j < LargeVecSize; j++)
@@ -29,13 +27,13 @@ int solution(int n, vector<int> lost, vector<int> reserve) {
             }
             CheckVector[lost[j]-1] -= 1; 
         }
+        
         if(j < reserve.size())
         {   
             if(CheckVector[reserve[j]-1] == 0)
             {
                 answer += 1;
             }
-            
             CheckVector[reserve[j]-1] += 1; 
         }
     }
@@ -51,7 +49,7 @@ int solution(int n, vector<int> lost, vector<int> reserve) {
             }
             else
             {
-                 if(CheckVector[reserve[i]]==0 && reserve[i] < n)
+                 if( reserve[i] < n && CheckVector[reserve[i]]==0)
                  {
                      answer += 1;
                      CheckVector[reserve[i]]=1;
