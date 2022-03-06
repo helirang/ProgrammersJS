@@ -1,0 +1,8 @@
+function solution(n){
+    var answer = 0;
+    let tempArr = (n+'').split('');
+    tempArr.forEach((element)=>{
+        answer += parseInt(element);
+    })
+    return answer;
+}
