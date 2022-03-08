@@ -6,3 +6,4 @@ function solution(s) {
     join('');
     return answer;
 }
+ 
